@@ -1,4 +1,7 @@
 
+
+
+
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
@@ -15,8 +18,8 @@
 <div class="login-view">
     <div class="login-wrapper" ng-controller="loginCtrl" style="height: 640px">
         <div class="login-box">
-            <div class="company-name" style="text-align: center;width: 320px;height: 150px;">
-                <img src="image/bjut-logo-mini.png" style="width:320px;height: 150px;">
+            <div class="company-name" style="text-align: center">
+               <img src="image/bjut-logo-mini.png" style="width:320px;height: 150px;">
             </div>
             <div class="ewm" style="text-align: center;">
                 <img src="image/green-out.png" style="width:260px;height: 260px;">
@@ -29,11 +32,42 @@
                 <label align="center"><font style="font-size: 27px;">学号：20074221</font></label>
             </div>
             <div id="clockDiv" style="text-align: center;">
-                <form name=clock style="text-align: center;margin-top: 30px;margin-bottom: 0px;">
-                    <input name=thetime
-                           style="font-size: 15pt;color:#000000;border:0;width: 320px;text-align: center;"
-                           size=100>
+                <form name=clock style="text-align: center;margin-top: 30px;margin-bottom: 0px;font-size: 15pt;"
+				size=100>
+                   
+                <div>
 
+	<span class="time" id="Date"></span>
+</div>
+ <script type="text/javascript"> 
+        setInterval(function(){   
+        var date = new Date();   
+        var year = date.getFullYear();    //获取当前年份   
+        var mon = date.getMonth()+1;
+        if (mon<10) {
+        	mon = "0"+mon
+        }      //获取当前月份   
+        var da = date.getDate();          //获取当前日   
+        var day = date.getDay(); 
+        if (da<10) {
+        	da="0"+da
+        }         //获取当前星期几   
+        var h = date.getHours();  
+        if (h<10) {
+        	h="0"+h
+        }        //获取小时   
+        var m = date.getMinutes();  
+        if (m<10) {
+        	m="0"+m
+        }      //获取分钟   
+        var s = date.getSeconds(); 
+        if (s<10) {
+        	s="0"+s
+        }       //获取秒   
+        var d = document.getElementById('Date');    
+          d.innerHTML=year+'年'+mon+'月'+da+'日 '+h+':'+m+':'+s;  
+        },1000)
+    </script>
                 </form>
             </div>
         </div>
