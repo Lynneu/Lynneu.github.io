@@ -1,2 +1,78 @@
-$ cd lynneu.github.io
-$ echo "Hello World" > index.html
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>北工大学生身份校验</title>
+    <link href="../css/login.css" type="text/css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body onload="startclock()">
+<div class="login-view">
+    <div class="login-wrapper" ng-controller="loginCtrl" style="height: 640px">
+        <div class="login-box">
+            <div class="company-name" style="text-align: center">
+               <img src="http://www.qianwanbo.cn:8081/accesscode/imgs/bjut-logo-mini.png" style="width:320px;height: 150px;">
+            </div>
+            <div class="ewm" style="text-align: center;">
+                <img src="http://www.qianwanbo.cn:8081/accesscode/imgs/green-out.png" style="width:260px;height: 260px;">
+            </div>
+            <div id="codeMessage" style="text-align: center;margin-top: 20px;">
+                <label align="center"><font style="font-size: 35px;font-weight: bold;"
+                                            color="#4EAD5B">出校申请已通过</font></label>
+            </div>
+            <div id="studentNoDiv" style="text-align: center;margin-top: 20px;">
+                <label align="center"><font style="font-size: 27px;">学号：20074221</font></label>
+            </div>
+            <div id="clockDiv" style="text-align: center;">
+                <form name=clock style="text-align: center;margin-top: 30px;margin-bottom: 0px;font-size: 15pt;"
+				size=100>
+                   
+                <div>
+
+	<span class="time" id="Date"></span>
+</div>
+ <script type="text/javascript"> 
+        setInterval(function(){   
+        var date = new Date();   
+        var year = date.getFullYear();    //获取当前年份   
+        var mon = date.getMonth()+1;
+        if (mon<10) {
+        	mon = "0"+mon
+        }      //获取当前月份   
+        var da = date.getDate();          //获取当前日   
+        var day = date.getDay(); 
+        if (da<10) {
+        	da="0"+da
+        }         //获取当前星期几   
+        var h = date.getHours();  
+        if (h<10) {
+        	h="0"+h
+        }        //获取小时   
+        var m = date.getMinutes();  
+        if (m<10) {
+        	m="0"+m
+        }      //获取分钟   
+        var s = date.getSeconds(); 
+        if (s<10) {
+        	s="0"+s
+        }       //获取秒   
+        var d = document.getElementById('Date');    
+          d.innerHTML=year+'年'+mon+'月'+da+'日 '+h+':'+m+':'+s;  
+        },1000)
+    </script>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.js" type="application/javascript"></script>
+<script src="../js/jquery.qrcode.min.js" type="application/javascript"></script>
+<script src="../js/clock.js" type="application/javascript"></script>
+</body>
+
+</html>
